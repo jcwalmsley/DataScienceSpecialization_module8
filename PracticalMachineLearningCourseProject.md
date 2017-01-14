@@ -1,16 +1,7 @@
-# Practical Machine Learning Course Project (Personal Activity Predictions)
+# Practical Machine Learning Course Project (Exercise Quality Classification Predictions)
 james c walmsley  
 1/10/2017  
 ## EXECUTIVE SUMMARY:
-        #
-        Data
-        The training data for this project are available here:
-        https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv
-        The test data are available here:
-        https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
-        The data for this project come from this source: 
-        http://groupware.les.inf.puc-rio.br/har.  
-        #
         A) How the Model was built:
         In order to build a predictive model from the two data sets provided we first removed all irrelevant  
         columns of variables having no impact on the predictability of the model being built (ie., variables  
@@ -47,9 +38,15 @@ setwd("~/Desktop/Coursera_R/8_PracticalMachineLearning/PracticalMachineLearning"
 ```
 
 ## RAW DATA IMPORT:
-## The data for this project come from this source: http://groupware.les.inf.puc-rio.br/har.
 
 ```r
+# Data
+# The training data for this project are available here:
+# https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv
+# The test data are available here:
+# https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
+# The data for this project come from this source: 
+# http://groupware.les.inf.puc-rio.br/har.  
 # Download the training data set
 trainUrl <- "http://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
 csvTrainingFile <- "pml-training.csv"
@@ -71,7 +68,7 @@ dateDownLoaded
 ```
 
 ```
-## [1] "Sat Jan 14 17:18:34 2017"
+## [1] "Sat Jan 14 17:28:11 2017"
 ```
 
 ```r
@@ -96,16 +93,14 @@ dateDownLoaded
 ```
 
 ```
-## [1] "Sat Jan 14 17:18:34 2017"
+## [1] "Sat Jan 14 17:28:11 2017"
 ```
 ## READ AND SAVE THE CSV DATA:
 
 ```r
 # Read and save the training and test data csv files 
-# training
 csvTrainingFile <- read.csv("pml-training.csv", header = TRUE, sep = ",", quote = "", na.strings = c("NA","#DIV/0!",""))
 training <- csvTrainingFile
-# testing
 csvTestingFile <- read.csv("pml-testing.csv", header = TRUE, sep = ",", quote = "", na.strings = c("NA","#DIV/0!",""))
 testing <- csvTestingFile
 ```
@@ -138,13 +133,13 @@ install.packages("rattle");install.packages("rpart")
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpG2OWlz/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpzSalGH/downloaded_packages
 ```
 
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpG2OWlz/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpzSalGH/downloaded_packages
 ```
 
 ```r
@@ -208,7 +203,6 @@ plot(confMatrf1a$table, col = confMatrf1a$byClass, main = paste("Confusion Matri
 
 ![](PracticalMachineLearningCourseProject_files/figure-html/modelDataB-2.png)<!-- -->
  
-
 
 ## USING THE CLASSIFICATION TREE MODEL TO PREDICT ON THE VALIDATION DATA SET:
 
@@ -292,7 +286,7 @@ install.packages("randomForest");library(randomForest)
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpG2OWlz/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpzSalGH/downloaded_packages
 ```
 
 ```
@@ -336,7 +330,6 @@ rfmod1
 ## "D"    0    0    9 2243    0 0.0039964476
 ## "E"    0    1    0    4 2520 0.0019801980
 ```
-
 
 
 ## USING THE RANDOM FOREST MODEL FOR PREDICTION ON THE VALIDATION DATA SET:
@@ -394,8 +387,6 @@ confMatrrfmod1
 
 
 
-
-
 ```r
 # Plot variable importance to see which variables have the most impact on the prediction model
 library(randomForest)
@@ -417,7 +408,6 @@ ooer
 ## Out of Sample Error Rate 
 ##              0.003738318
 ```
-
 
 
 ## USING THE VALIDATED RANDOM FOREST PREDICTION MODEL ON THE TEST DATA SET:

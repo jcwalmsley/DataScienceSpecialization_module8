@@ -1,5 +1,5 @@
 ---
-title: "Practical Machine Learning Course Project (Personal Activity Predictions)"
+title: "Practical Machine Learning Course Project (Exercise Quality Classification Predictions)"
 author: "james c walmsley"
 date: "1/10/2017"
 output:
@@ -14,15 +14,6 @@ output:
     toc: yes
 ---
 ## EXECUTIVE SUMMARY:
-        #
-        Data
-        The training data for this project are available here:
-        https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv
-        The test data are available here:
-        https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
-        The data for this project come from this source: 
-        http://groupware.les.inf.puc-rio.br/har.  
-        #
         A) How the Model was built:
         In order to build a predictive model from the two data sets provided we first removed all irrelevant  
         columns of variables having no impact on the predictability of the model being built (ie., variables  
@@ -58,8 +49,14 @@ setwd("~/Desktop/Coursera_R/8_PracticalMachineLearning/PracticalMachineLearning"
 ```
 
 ## RAW DATA IMPORT:
-## The data for this project come from this source: http://groupware.les.inf.puc-rio.br/har.
 ```{r, ImportData, echo=T, eval=T}
+# Data
+# The training data for this project are available here:
+# https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv
+# The test data are available here:
+# https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
+# The data for this project come from this source: 
+# http://groupware.les.inf.puc-rio.br/har.  
 # Download the training data set
 trainUrl <- "http://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
 csvTrainingFile <- "pml-training.csv"
@@ -86,10 +83,8 @@ dateDownLoaded
 ## READ AND SAVE THE CSV DATA:
 ```{r, readData, echo=T, eval=T}
 # Read and save the training and test data csv files 
-# training
 csvTrainingFile <- read.csv("pml-training.csv", header = TRUE, sep = ",", quote = "", na.strings = c("NA","#DIV/0!",""))
 training <- csvTrainingFile
-# testing
 csvTestingFile <- read.csv("pml-testing.csv", header = TRUE, sep = ",", quote = "", na.strings = c("NA","#DIV/0!",""))
 testing <- csvTestingFile
 ```
@@ -126,7 +121,6 @@ plot(confMatrf1a$table, col = confMatrf1a$byClass, main = paste("Confusion Matri
 ```
  
 
-
 ## USING THE CLASSIFICATION TREE MODEL TO PREDICT ON THE VALIDATION DATA SET:
 ```{r,echo=T, eval=T, message=FALSE, warning=FALSE, classificationTree}
 # PART 2 Using the Classification - Decision Tree method on the validation data set
@@ -149,7 +143,6 @@ rfmod1
 ```
 
 
-
 ## USING THE RANDOM FOREST MODEL FOR PREDICTION ON THE VALIDATION DATA SET:
 ```{r,validationTesting,echo=T,eval=T}
 # PART 4 Validate the RandonForest model predictions using the validation data set
@@ -158,8 +151,6 @@ predictfrmod1 <- predict(rfmod1, validationSplit, type = "class")
 confMatrrfmod1 <- confusionMatrix(validationSplit$classe, predictfrmod1)
 confMatrrfmod1
 ```
-
-
 
 
 ```{r, importanceOfVars, echo=T,eval=T}
@@ -175,7 +166,6 @@ ooer <- 1-confMatrrfmod1$overall[1]
 names(ooer) <- "Out of Sample Error Rate"
 ooer
 ```
-
 
 
 ## USING THE VALIDATED RANDOM FOREST PREDICTION MODEL ON THE TEST DATA SET:
