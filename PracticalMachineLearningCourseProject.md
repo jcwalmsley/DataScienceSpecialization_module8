@@ -2,16 +2,6 @@
 james c walmsley  
 1/10/2017  
 ## EXECUTIVE SUMMARY:
-        Background
-        "Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large  
-        amount of data about personal activity relatively inexpensively. These type of devices are part of  
-        the quantified self movement – a group of enthusiasts who take measurements about themselves regularly  
-        to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing  
-        that people regularly do is quantify how much of a particular activity they do, but they rarely  
-        quantify how well they do it. In this project, your goal will be to use data from accelerometers on the  
-        belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly  
-        and incorrectly in 5 different ways. More information is available from the website here:  
-        http://groupware.les.inf.puc-rio.br/har (see the section on the Weight Lifting Exercise Dataset)."
         #
         Data
         The training data for this project are available here:
@@ -81,7 +71,7 @@ dateDownLoaded
 ```
 
 ```
-## [1] "Sat Jan 14 17:12:33 2017"
+## [1] "Sat Jan 14 17:18:34 2017"
 ```
 
 ```r
@@ -106,7 +96,7 @@ dateDownLoaded
 ```
 
 ```
-## [1] "Sat Jan 14 17:12:33 2017"
+## [1] "Sat Jan 14 17:18:34 2017"
 ```
 ## READ AND SAVE THE CSV DATA:
 
@@ -148,13 +138,13 @@ install.packages("rattle");install.packages("rpart")
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//Rtmp5i8TSN/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpG2OWlz/downloaded_packages
 ```
 
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//Rtmp5i8TSN/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpG2OWlz/downloaded_packages
 ```
 
 ```r
@@ -302,7 +292,7 @@ install.packages("randomForest");library(randomForest)
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//Rtmp5i8TSN/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpG2OWlz/downloaded_packages
 ```
 
 ```
@@ -449,31 +439,6 @@ predictionstesting2 <- predict(rfmod1, newdata=testing2) #type = "class"
 ```r
 # Capturing the results of the randomForest prediction on the test data set as results
 results <- data.frame(problem_id= testing2$X.problem_id., classe = predictionstesting2)
-results
-```
-
-```
-##    problem_id classe
-## 1           1    "B"
-## 2           2    "A"
-## 3           3    "B"
-## 4           4    "A"
-## 5           5    "A"
-## 6           6    "E"
-## 7           7    "D"
-## 8           8    "B"
-## 9           9    "A"
-## 10         10    "A"
-## 11         11    "B"
-## 12         12    "C"
-## 13         13    "B"
-## 14         14    "A"
-## 15         15    "E"
-## 16         16    "E"
-## 17         17    "A"
-## 18         18    "B"
-## 19         19    "B"
-## 20         20    "B"
 ```
 
 
