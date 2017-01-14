@@ -81,7 +81,7 @@ dateDownLoaded
 ```
 
 ```
-## [1] "Sat Jan 14 09:19:59 2017"
+## [1] "Sat Jan 14 13:48:22 2017"
 ```
 
 ```r
@@ -106,7 +106,7 @@ dateDownLoaded
 ```
 
 ```
-## [1] "Sat Jan 14 09:19:59 2017"
+## [1] "Sat Jan 14 13:48:23 2017"
 ```
 ## READ AND SAVE THE CSV DATA:
 
@@ -148,13 +148,13 @@ install.packages("rattle");install.packages("rpart")
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmptvDZLC/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpQb5tPH/downloaded_packages
 ```
 
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmptvDZLC/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpQb5tPH/downloaded_packages
 ```
 
 ```r
@@ -305,7 +305,7 @@ install.packages("randomForest");library(randomForest)
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmptvDZLC/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpQb5tPH/downloaded_packages
 ```
 
 ```
