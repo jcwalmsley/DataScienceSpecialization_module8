@@ -1,0 +1,12 @@
+# Library list for  this project
+library(caret)
+library(dplyr)
+library(ggplot2)
+library(kernlab)
+library(pgmm)
+library(randomForest)
+library(rattle)
+library(RColorBrewer)
+library(rpart)
+library(rpart.plot)
+library(yaml)

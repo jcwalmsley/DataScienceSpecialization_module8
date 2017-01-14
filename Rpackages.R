@@ -1,0 +1,11 @@
+# install.package list for this Project
+install.packages("caret")
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("kernlab")
+install.packages("pgmm")
+install.packages("randomForest")
+install.packages("rattle")
+install.packages("RColorBrewer")
+install.packages("rpart")
+install.packages("yaml")
