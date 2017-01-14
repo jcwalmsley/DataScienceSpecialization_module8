@@ -72,7 +72,7 @@ if (!file.exists(csvTrainingFile)){
 ```
 
 ```
-## File exists; pml-training.csv
+## Downloding pml-training.csv
 ```
 
 ```r
@@ -81,7 +81,7 @@ dateDownLoaded
 ```
 
 ```
-## [1] "Sat Jan 14 09:14:03 2017"
+## [1] "Sat Jan 14 09:19:59 2017"
 ```
 
 ```r
@@ -97,7 +97,7 @@ if (!file.exists(csvTestingFile)) {
 ```
 
 ```
-## File exists; pml-testing.csv
+## Downloding pml-testing.csv
 ```
 
 ```r
@@ -106,7 +106,7 @@ dateDownLoaded
 ```
 
 ```
-## [1] "Sat Jan 14 09:14:03 2017"
+## [1] "Sat Jan 14 09:19:59 2017"
 ```
 ## READ AND SAVE THE CSV DATA:
 
@@ -148,13 +148,13 @@ install.packages("rattle");install.packages("rpart")
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpVEPYvi/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmptvDZLC/downloaded_packages
 ```
 
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpVEPYvi/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmptvDZLC/downloaded_packages
 ```
 
 ```r
@@ -305,7 +305,7 @@ install.packages("randomForest");library(randomForest)
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpVEPYvi/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmptvDZLC/downloaded_packages
 ```
 
 ```
