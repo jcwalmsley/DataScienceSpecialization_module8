@@ -72,7 +72,7 @@ if (!file.exists(csvTrainingFile)){
 ```
 
 ```
-## Downloding pml-training.csv
+## File exists; pml-training.csv
 ```
 
 ```r
@@ -81,7 +81,7 @@ dateDownLoaded
 ```
 
 ```
-## [1] "Sat Jan 14 13:48:22 2017"
+## [1] "Sat Jan 14 17:12:33 2017"
 ```
 
 ```r
@@ -97,7 +97,7 @@ if (!file.exists(csvTestingFile)) {
 ```
 
 ```
-## Downloding pml-testing.csv
+## File exists; pml-testing.csv
 ```
 
 ```r
@@ -106,7 +106,7 @@ dateDownLoaded
 ```
 
 ```
-## [1] "Sat Jan 14 13:48:23 2017"
+## [1] "Sat Jan 14 17:12:33 2017"
 ```
 ## READ AND SAVE THE CSV DATA:
 
@@ -131,10 +131,10 @@ testing2 <- testing[, -c(nopredval,lowvar)]
 ## MODELING, WE PARTITION WITH A 70:30 SPLIT THE TRAINING DATA TO GET A TRAINING & VALIDATION DATA SET:
 
 ```r
-# Here we have split the original training data set into two samller data sets consisting
-# of a new training data set 70% of the size of the original training set and the
-# remainig 30% of the data will be a validation data set to test the prediction models built  
-# a prediction model on the original test data set
+set.seed(556)
+intrain <- createDataPartition(y=training2$X.classe., p=0.70, list = F)
+trainingSplit <- training2[intrain,]
+trainingSplit <- trainingSplit[,-54]
 ```
 ## USING THE CLASSIFICATION TREE MODEL TO PREDICT ON THE TRAINING DATA SET:
 
@@ -148,27 +148,25 @@ install.packages("rattle");install.packages("rpart")
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpQb5tPH/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//Rtmp5i8TSN/downloaded_packages
 ```
 
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpQb5tPH/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//Rtmp5i8TSN/downloaded_packages
 ```
 
 ```r
 library(rpart.plot);library(rpart);library(rattle)
 f1a <- rpart::rpart(classe ~ ., data = trainingSplit, method = "class")
-rattle::fancyRpartPlot(f1a)
+rattle::fancyRpartPlot(f1a);predictf1a <- predict(f1a, trainingSplit, type = "class")
 ```
 
 ![](PracticalMachineLearningCourseProject_files/figure-html/modelDataB-1.png)<!-- -->
 
 ```r
-predictf1a <- predict(f1a, trainingSplit, type = "class")
-confMatrf1a <- confusionMatrix(predictf1a, trainingSplit$classe)
-confMatrf1a
+confMatrf1a <- confusionMatrix(predictf1a, trainingSplit$classe);confMatrf1a
 ```
 
 ```
@@ -235,8 +233,7 @@ rattle::fancyRpartPlot(f1b)
 
 ```r
 predictf2b <- predict(f1b, validationSplit, type = "class")
-confMatrf2b <- confusionMatrix(validationSplit$classe, predictf2b)
-confMatrf2b
+confMatrf2b <- confusionMatrix(validationSplit$classe, predictf2b);confMatrf2b
 ```
 
 ```
@@ -305,7 +302,7 @@ install.packages("randomForest");library(randomForest)
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//RtmpQb5tPH/downloaded_packages
+## 	/var/folders/8k/2jzlfw_95zz_62dhv5kxlps00000gn/T//Rtmp5i8TSN/downloaded_packages
 ```
 
 ```

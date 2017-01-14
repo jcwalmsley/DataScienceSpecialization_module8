@@ -65,7 +65,7 @@ local({r <- getOption("repos")
        options(repos=r)
 })
 setwd("~/Desktop/Coursera_R/8_PracticalMachineLearning/PracticalMachineLearning")
-> ```
+```
 
 ## RAW DATA IMPORT:
 ## The data for this project come from this source: http://groupware.les.inf.puc-rio.br/har.
@@ -113,11 +113,6 @@ testing2 <- testing[, -c(nopredval,lowvar)]
 ```
 ## MODELING, WE PARTITION WITH A 70:30 SPLIT THE TRAINING DATA TO GET A TRAINING & VALIDATION DATA SET:
 ```{r, modelDataA, echo=c(1:3,5), eval=T, message=FALSE, warning=FALSE, results='hide'}
-# Here we have split the original training data set into two samller data sets consisting
-# of a new training data set 70% of the size of the original training set and the
-# remainig 30% of the data will be a validation data set to test the prediction models built  
-# with the new smaller training data set to determine the prediction accuracy before using it as
-# a prediction model on the original test data set
 set.seed(556)
 intrain <- createDataPartition(y=training2$X.classe., p=0.70, list = F)
 trainingSplit <- training2[intrain,]
@@ -135,10 +130,8 @@ set.seed(96723)
 install.packages("rattle");install.packages("rpart")
 library(rpart.plot);library(rpart);library(rattle)
 f1a <- rpart::rpart(classe ~ ., data = trainingSplit, method = "class")
-rattle::fancyRpartPlot(f1a)
-predictf1a <- predict(f1a, trainingSplit, type = "class")
-confMatrf1a <- confusionMatrix(predictf1a, trainingSplit$classe)
-confMatrf1a
+rattle::fancyRpartPlot(f1a);predictf1a <- predict(f1a, trainingSplit, type = "class")
+confMatrf1a <- confusionMatrix(predictf1a, trainingSplit$classe);confMatrf1a
 plot(confMatrf1a$table, col = confMatrf1a$byClass, main = paste("Confusion Matrix: Accuracy = ", round(confMatrf1a$overall["Accuracy"], 4)))
 ```
  
@@ -151,8 +144,7 @@ set.seed(36528)
 f1b <- rpart::rpart(classe ~ ., data = trainingSplit, method = "class")
 rattle::fancyRpartPlot(f1b)
 predictf2b <- predict(f1b, validationSplit, type = "class")
-confMatrf2b <- confusionMatrix(validationSplit$classe, predictf2b)
-confMatrf2b
+confMatrf2b <- confusionMatrix(validationSplit$classe, predictf2b);confMatrf2b
 plot(confMatrf2b$table, col = confMatrf2b$byClass, main = paste("Confusion Matrix: Accuracy = ", round(confMatrf2b$overall["Accuracy"], 4)))
 ```
 
